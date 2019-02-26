@@ -1,0 +1,61 @@
+# Journaux
+les journaux
+*.bûche
+npm-debug.log *
+yarn-debug.log *
+yarn-error.log *
+
+# Données d'exécution
+pids
+* .pid
+*.la graine
+* .pid.lock
+
+# Répertoire pour les bibliothèques instrumentées générées par jscoverage / JSCover
+lib-cov
+
+# Répertoire de couverture utilisé par des outils comme istanbul
+couverture
+
+couverture de test # new york
+.nyc_output
+
+# Stockage intermédiaire Grunt (http://gruntjs.com/creating-plugins#storing-task-files)
+.grognement
+
+# Répertoire de dépendance Bower (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Addons binaires compilés (https://nodejs.org/api/addons.html)
+construire / libérer
+
+# Répertoires de dépendances
+node_modules /
+jspm_packages /
+
+# Fichiers de déclaration TypeScript v1
+tapages /
+
+# Répertoire de cache npm facultatif
+.npm
+
+# Cache eslint facultative
+.eslintcache
+
+# Historique optionnel REPL
+.node_repl_history
+
+# Sortie de 'npm pack'
+* .tgz
+
+Fichier intégrité du fil
+intégrité du fil
+
+Fichier de variables d'environnement # dotenv
+.env
+
+# next.js génère la sortie
+.suivant
