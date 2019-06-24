@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p=JSON.stringify(data)
+  p cpu
+  div
+    div.val(style='width: '+data.cpu.usage+'%')
+  p ram
+  div
+    div.val(style='width: '+data.ram.usage+'%')
+  p memory
+  div
+    div.val(style='width: '+data.mem.p)

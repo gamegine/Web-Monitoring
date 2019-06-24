@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/server', function(req, res, next) {
 	Promise.all([GetCmdData(cpu), GetCmdData(ram), GetCmdData(mem)]).then(function(data) {
 		var json = {"cpu":JSON.parse(data[0]),"ram":JSON.parse(data[1]),"mem":JSON.parse(data[2])}
-		res.render('index', {title: JSON.stringify(json)});
+		res.render('server', {title:'server '+config.ssh.host,data:json});
         })
 });
 
