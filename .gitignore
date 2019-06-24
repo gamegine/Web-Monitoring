@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+#css generated
+*.css
+
+#d'ont make public config
+bin/config.js
