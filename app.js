@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var stylus = require('stylus');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index').router;
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -49,6 +49,14 @@ app.use(function(err, req, res, next) {
 
 io.sockets.on('connection', function (socket) {
     console.log('Un client est connecté !');
+    var test = require('./routes/index')
+    socket.emit('message', 'Vous êtes bien connecté !');
+
+    setInterval(function(){
+        Promise.all([test.c(test.cpu), test.c(test.ram), test.c(test.mem)]).then(function(data) {
+            socket.emit('update',{"cpu":JSON.parse(data[0]),"ram":JSON.parse(data[1]),"mem":JSON.parse(data[2])});
+        })
+    }, 1000);
 });
 
 module.exports = {app:app, server:server};

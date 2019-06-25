@@ -14,8 +14,6 @@ router.get('/server', function(req, res, next) {
         })
 });
 
-module.exports = router;
-
 function GetCmdData(cmd) {
     return new Promise(function(res, rej) {
         var Client = require('ssh2').Client;
@@ -33,3 +31,5 @@ var cpu ='grep \'cpu \' /proc/stat | awk \'{usage=($2+$4)*100/($2+$4+$5)} END {p
 var ram='free | grep Mem | awk \'{print "{\\"all\\":"$2",\\"used\\":"$3",\\"usage\\":"($3/$2*100)"}"}\''
 var mem='df -hl | grep dev/sda1 | awk \'END {print "{\\"size\\":\\""$2"\\",\\"used\\":\\""$3"\\",\\"p\\":\\""$5"\\"}"}\''
 
+
+module.exports = {router:router,c:GetCmdData,cpu:cpu,ram:ram,mem:mem};
