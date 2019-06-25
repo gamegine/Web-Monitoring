@@ -21,7 +21,7 @@ function GetCmdData(cmd) {
         conn.on('ready', function() {
             conn.exec(cmd, function(err, stream) {
                 if (err) throw err;
-                stream.on('data', function(data) {res("" + data)})
+                stream.on('data', function(data) {res("" + data)}).end()
             });
         }).connect(config.ssh);
     });

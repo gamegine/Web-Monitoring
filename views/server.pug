@@ -2,14 +2,18 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  p#data=JSON.stringify(data)
-  p cpu
+  div
+    p#console(style='height:170px; overflow: auto;')
+    input(id="cmd",style='width:100%;')
+    br
+    button(onclick="exe('ls')") ls
+  //p#data=JSON.stringify(data)
+  p#cpuinfo cpu
   div
     div.val#cpu(style='width: '+data.cpu.usage+'%')
-  p ram
+  p#raminfo ram
   div
     div.val#ram(style='width: '+data.ram.usage+'%')
-  p memory
+  p#meminfo disk
   div
     div.val#mem(style='width: '+data.mem.p)

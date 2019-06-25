@@ -56,7 +56,13 @@ io.sockets.on('connection', function (socket) {
         Promise.all([test.c(test.cpu), test.c(test.ram), test.c(test.mem)]).then(function(data) {
             socket.emit('update',{"cpu":JSON.parse(data[0]),"ram":JSON.parse(data[1]),"mem":JSON.parse(data[2])});
         })
-    }, 1000);
+    }, 2500);
+
+    socket.on('cmd', function (cmd) {
+        socket.emit('console',cmd);
+        test.c(cmd).then(function(data) {socket.emit('console',data);})
+    });
+
 });
 
 module.exports = {app:app, server:server};
